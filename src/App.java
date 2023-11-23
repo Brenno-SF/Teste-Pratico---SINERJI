@@ -56,6 +56,33 @@ public class App {
             System.out.println(e.getMessage());
         }
         
-        functions.leArqVendas(func);
+        path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\sales.txt";
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {//ler arquivos de vendas
+
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
+            Date dataV = new Date();
+            String line = br.readLine();
+            line = br.readLine();
+
+            double valorTotal = 0;
+            while (line != null) {
+                
+                String[] space = line.split(", ");
+
+                dataV = sdf.parse(space[0]);
+
+                for (funcionario f : func) {
+                    dataAd = sdf.parse(f.getDataAdmissao());
+                    valorTotal+=functions.valorTotal(func, dataAd.getMonth(),dataAd.getYear(), dataV.getMonth(), dataV.getYear(), f.getSalarioCBonus());//metodo que retorna o valor total
+                }
+                line = br.readLine(); 
+            }
+            System.out.println(valorTotal);
+           
+                
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }        
+
     }
 }
