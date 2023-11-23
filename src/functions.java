@@ -21,17 +21,17 @@ public class functions {
 
                 dataV = sdf.parse(space[0]);
 
+                double valorTotal = 0;
                 for (funcionario f : func) {
                     Date dataAd = sdf.parse(f.getDataAdmissao());
-                    
                     if (dataV.getMonth() == dataAd.getMonth() && dataV.getYear() != dataAd.getYear()) { // checarndo se o funcionario está fazendo mais um ano de serviço
-                        // System.out.println("ganhou o bonus anual:");
-                        // System.out.println(f);
-                        // System.out.println(f.getSalarioCBonus() + f.getBonus());
+                        
+                        valorTotal = f.getSalarioCBonus() + valorTotal;
+                        System.out.println("No mês " + (dataV.getMonth()+1));
+                        System.out.println(valorTotal);
                         
                     }else{
-                        System.out.println(f);
-                        System.out.println(f.getSalarioCBonus());
+                       
                     }
                 }
 
