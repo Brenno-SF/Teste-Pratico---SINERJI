@@ -25,13 +25,13 @@ public class functions {
                     Date dataAd = sdf.parse(f.getDataAdmissao());
                     
                     if (dataV.getMonth() == dataAd.getMonth() && dataV.getYear() != dataAd.getYear()) { // checarndo se o funcionario está fazendo mais um ano de serviço
-                        System.out.println("ganhou o bonus anual:");
-                        System.out.println(f);
-                        System.out.println(f.getSalarioCBonus() + f.getBonus());
+                        // System.out.println("ganhou o bonus anual:");
+                        // System.out.println(f);
+                        // System.out.println(f.getSalarioCBonus() + f.getBonus());
                         
                     }else{
-                        // System.out.println(f);
-                        // System.out.println(f.getSalarioCBonus());
+                        System.out.println(f);
+                        System.out.println(f.getSalarioCBonus());
                     }
                 }
 
