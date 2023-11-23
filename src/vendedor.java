@@ -1,20 +1,20 @@
 public class vendedor extends funcionario{
     private double venda;
-    private double percentToVenda;
+    private double beneficio = 0.3;
 
     
-    public void setPercentToVenda(double percentToVenda) {
-        this.percentToVenda = percentToVenda;
+    public void setBeneficio(double percentToVenda) {
+        this.beneficio = percentToVenda;
     }
-    public double getPercentToVenda() {
-        return percentToVenda;
+    public double getBeneficio() {
+        return beneficio;
     }
     public double getVenda() {
         return venda;
     }
     public void setVenda(double venda) {
         this.venda = venda;
-        this.percentToVenda = 0.3 * venda;
+        this.beneficio *= venda;
     }
     
     public vendedor(String name) {

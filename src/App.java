@@ -25,7 +25,7 @@ public class App {
                 
                 switch (cargo) {
                     case "Gerente":
-                    funcionario g = new gerente(space[1]);
+                        funcionario g = new gerente(space[1]);
                         g.setDataAdmissao(space[2]);
                         dataAd = sdf.parse(g.getDataAdmissao());
                         func.add(g);
@@ -51,43 +51,11 @@ public class App {
                     
                     line = br.readLine(); 
                 }
-                for (funcionario f : func) {
-                    System.out.println(f.getDataAdmissao());
-                }
                 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-        path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\sales.txt";
         
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {//ler arquivos de vendas
-
-            SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
-            Date dataV = new Date();
-            String line = br.readLine();
-            line = br.readLine();
-            
-            while (line != null) {
-                String[] space = line.split(", ");
-                
-                dataV = sdf.parse(space[0]);
-
-                for (funcionario f : func) {
-                    dataAd = sdf.parse(f.getDataAdmissao());
-                    
-                    if (dataV.getMonth() == dataAd.getMonth() && dataV.getYear() != dataAd.getYear()) { // checarndo se o funcionario está fazendo mais um ano de serviço
-                
-                        System.out.println(f);
-                    }
-                }
-
-                line = br.readLine(); 
-            }
-           
-                
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        functions.leArqVendas(func);
     }
 }

@@ -1,4 +1,4 @@
-Vendedor, Ana Silva, João Mendes
+Datas, Ana Silva, João Mendes
 12/2021, 5200.00, 3400.00
 01/2022, 4000.00, 7700.00
 02/2022, 4200.00, 5000.00
