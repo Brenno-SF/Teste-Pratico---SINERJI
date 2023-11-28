@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class App {
     public static void main(String[] args) {
-        String path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\in.txt";
+        String path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\in.txt"; //Trocar diretoríos para teste
         String cargo;
         
         ArrayList<funcionario> func = new ArrayList<>();
@@ -56,7 +56,7 @@ public class App {
             System.out.println(e.getMessage());
         }
         
-        path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\sales.txt";
+        path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\sales.txt"; //Trocar diretoríos para teste
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {//ler arquivos de vendas
 
             SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
@@ -75,9 +75,9 @@ public class App {
                     dataAd = sdf.parse(f.getDataAdmissao());
                     valorTotal+=functions.valorTotal(func, dataAd.getMonth(),dataAd.getYear(), dataV.getMonth(), dataV.getYear(), f.getSalarioCBonus());//metodo que retorna o valor total
                 }
+                System.out.println("valor total do mes "+(dataV.getMonth()+1) +": "+  valorTotal);
                 line = br.readLine(); 
             }
-            System.out.println(valorTotal);
            
                 
         } catch (Exception e) {

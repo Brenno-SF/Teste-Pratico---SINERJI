@@ -11,9 +11,8 @@ public class functions {
                 System.out.println(valorTotal);
                 
             }else{
-               valorTotal+=valor; // a ideia aqui é somar todos os salarios, como pede o primeiro metodo
-                System.out.println("No mês " + (mesAtual+1));
-                System.out.println(valorTotal);
+                // 
+                
             }
 
         return valorTotal;
