@@ -1,19 +1,24 @@
 import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class functions {
 
-    static double valorTotal(ArrayList<funcionario> func, int mesAd, int anoAd, int mesAtual, int anoAtual, double valor){
-        double valorTotal=0;
-            if (mesAd == mesAtual && anoAd != anoAtual) { // checarndo se o funcionario está fazendo mais um ano de serviço
-                
-                valorTotal+=valor; // a ideia aqui é somar todos os salarios, como pede o primeiro metodo
-                System.out.println("No mês " + (mesAtual+1));
-                System.out.println(valorTotal);
+    static double valorTotal(ArrayList<funcionario> func, int mesAtual, int anoAtual) throws ParseException{
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
+        double valorTotal = 0;
+        for (funcionario f : func) {
+
+            Date dataAd = sdf.parse(f.getDataAdmissao());
+            if (dataAd.getMonth() == mesAtual && dataAd.getYear() != anoAtual) { // checando se o funcionario está fazendo mais um ano de serviço
+                valorTotal += (f.getSalarioCBen() + f.getBonus()); // a ideia aqui é somar todos os salarios,  como pede o primeiro metodo, neste caso com o bonus anual
                 
             }else{
-                // 
-                
+                valorTotal += (f.getSalarioCBen()); // a ideia aqui é somar todos os salarios, como pede o primeiro metodo    
             }
+        }
 
         return valorTotal;
     }

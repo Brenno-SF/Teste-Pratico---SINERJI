@@ -5,14 +5,14 @@ public abstract class funcionario{
     private double salario;
     private String dataAdmissao;
     private double bonus;
-    private double SalarioCBonus;
+    private double SalarioCBen;
     
-    public double getSalarioCBonus() {
-        return SalarioCBonus;
+    public double getSalarioCBen() {
+        return SalarioCBen;
     }
 
-    public void setSalarioCBonus(double salarioCBonus) {
-        SalarioCBonus = salarioCBonus;
+    public void setSalarioCBen(double salarioCBonus) {
+        SalarioCBen = salarioCBonus;
     }
 
     public double getBonus() {

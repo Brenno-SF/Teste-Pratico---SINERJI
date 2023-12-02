@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class App {
     public static void main(String[] args) {
-        String path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\in.txt"; //Trocar diretoríos para teste
+        String path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\in.txt"; //Trocar diretorios para teste
         String cargo;
         
         ArrayList<funcionario> func = new ArrayList<>();
@@ -56,7 +56,7 @@ public class App {
             System.out.println(e.getMessage());
         }
         
-        path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\sales.txt"; //Trocar diretoríos para teste
+        path = "C:\\Users\\famil\\OneDrive\\Documentos\\JAVA\\teste\\src\\sales.txt"; //Trocar diretorios para teste
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {//ler arquivos de vendas
 
             SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
@@ -66,16 +66,14 @@ public class App {
 
             double valorTotal = 0;
             while (line != null) {
-                
                 String[] space = line.split(", ");
 
                 dataV = sdf.parse(space[0]);
 
-                for (funcionario f : func) {
-                    dataAd = sdf.parse(f.getDataAdmissao());
-                    valorTotal+=functions.valorTotal(func, dataAd.getMonth(),dataAd.getYear(), dataV.getMonth(), dataV.getYear(), f.getSalarioCBonus());//metodo que retorna o valor total
-                }
-                System.out.println("valor total do mes "+(dataV.getMonth()+1) +": "+  valorTotal);
+                valorTotal=functions.valorTotal(func, dataV.getMonth(),dataV.getYear());//metodo que retorna o valor total
+
+                System.out.printf("O valor total referente ao mes %d:\n%.2f\n",(dataV.getMonth() + 1), valorTotal);
+
                 line = br.readLine(); 
             }
            

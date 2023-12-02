@@ -9,6 +9,6 @@ public class secretario extends funcionario{
         super(name);
         setSalario(7000);
         setBonus(1000);
-        setSalarioCBonus((beneficio*7000) + 7000);
+        setSalarioCBen((beneficio*getSalario()) + getSalario());
     }
 }

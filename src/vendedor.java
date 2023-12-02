@@ -1,5 +1,5 @@
 public class vendedor extends funcionario{
-    private double venda = 0;// até agora não implementei as vendas, por isso zero
+    private double venda = 1;// até agora não implementei as vendas, por isso 1
     private double beneficio = 0.3;
 
     
@@ -19,7 +19,7 @@ public class vendedor extends funcionario{
     public vendedor(String name) {
         super(name);
         setSalario(12000);
-        setSalarioCBonus((beneficio*venda) + getSalario());
+        setSalarioCBen(getSalario());
     }
 
     
