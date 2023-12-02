@@ -22,5 +22,12 @@ public class functions {
 
         return valorTotal;
     }
- 
+    static double salarioTotal(ArrayList<funcionario> func, int mesAtual, int anoAtual){
+        double allSalario = 0;
+
+        for (funcionario f : func) {
+            allSalario += f.getSalario();
+        }
+        return allSalario;
+    }
 }

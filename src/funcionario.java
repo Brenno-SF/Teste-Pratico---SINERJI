@@ -6,7 +6,16 @@ public abstract class funcionario{
     private String dataAdmissao;
     private double bonus;
     private double SalarioCBen;
+    private double venda;
     
+    public double getVenda() {
+        return venda;
+    }
+
+    public void setVenda(double venda) {
+        this.venda = venda;
+    }
+
     public double getSalarioCBen() {
         return SalarioCBen;
     }
@@ -53,9 +62,11 @@ public abstract class funcionario{
 
     @Override
     public String toString() {
-        return "funcionario [nome=" + name + ", salario=" + salario + ", data de admissao=" + dataAdmissao + "]";
+        return "funcionario [name=" + name + ", salario=" + salario + ", dataAdmissao=" + dataAdmissao + ", bonus="
+                + bonus + ", SalarioCBen=" + SalarioCBen + ", venda=" + venda + "]";
     }
 
-    
+   
+   
     
 }
