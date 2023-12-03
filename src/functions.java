@@ -30,4 +30,25 @@ public class functions {
         }
         return allSalario;
     }
-}
+
+        static double maiorValor(ArrayList<funcionario> func, int mesAtual, int anoAtual) throws ParseException{
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
+            double  max = Double.MIN_VALUE;
+            
+            for (funcionario f : func) {
+                
+                Date dataAd = sdf.parse(f.getDataAdmissao());
+                if (dataAd.getMonth() == mesAtual && dataAd.getYear() != anoAtual) { // checando se o funcionario está fazendo mais um ano de serviço
+                    if ((f.getSalarioCBen()+f.getBonus()) > max) { //definindo qual maior valor do mês
+                        max = f.getSalarioCBen()+f.getBonus();
+                    }    
+                }else{
+                    if (f.getSalarioCBen() > max) {
+                        max = f.getSalarioCBen();
+                    } 
+                }
+            }
+            
+            return max;
+        }
+    }

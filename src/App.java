@@ -69,6 +69,7 @@ public class App {
 
             double valorTotal;
             double salarioTotal;
+            double maiorValor;
             while (line != null) {
                 String[] space = line.split(", ");
 
@@ -76,8 +77,10 @@ public class App {
 
                 valorTotal=functions.valorTotal(func, dataV.getMonth(),dataV.getYear());//metodo que retorna o valor total
                 salarioTotal=functions.salarioTotal(func, dataV.getMonth(),dataV.getYear());//metodo que retorna o total apenas dos salarios
+                maiorValor = functions.maiorValor(func, dataV.getMonth(), dataV.getYear());
 
-                System.out.printf("--Valores referentes ao mes %d--\nValor total: %.2f\nSomente Salario: %.2f\n",(dataV.getMonth() + 1), valorTotal,salarioTotal);
+                System.out.printf("--Valores referentes ao mes %d--\nValor total: %.2f\nSomente Salario: %.2f\nMaior valor por funcionario: %.2f\n",(dataV.getMonth() + 1), valorTotal,salarioTotal,maiorValor);
+                
                 System.out.println();
                 line = br.readLine(); 
             }
