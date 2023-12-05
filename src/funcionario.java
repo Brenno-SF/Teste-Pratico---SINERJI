@@ -7,7 +7,17 @@ public abstract class funcionario{
     private double bonus;
     private double SalarioCBen;
     private double venda;
+    private double beneficio;
+
     
+    public double getBeneficio() {
+        return beneficio;
+    }
+
+    public void setBeneficio(double beneficio) {
+        this.beneficio = beneficio;
+    }
+
     public double getVenda() {
         return venda;
     }
@@ -65,6 +75,8 @@ public abstract class funcionario{
         return "funcionario [name=" + name + ", salario=" + salario + ", dataAdmissao=" + dataAdmissao + ", bonus="
                 + bonus + ", SalarioCBen=" + SalarioCBen + ", venda=" + venda + "]";
     }
+
+    
 
    
    

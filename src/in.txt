@@ -2,6 +2,6 @@ Cargo, Nome, mês/ ano da contratação
 Secretario, Jorge Carvalho, 01/2018
 Secretario, Maria Souza, 12/2015
 Vendedor, Ana Silva, 12/2021
-Vendedor, João Mendes, 12/2021
+Vendedor, Joao Mendes, 12/2021
 Gerente, Juliana Alves, 07/2017
 Gerente, Bento Albino, 03/2014
