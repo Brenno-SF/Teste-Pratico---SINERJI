@@ -11,6 +11,7 @@ public class App {
         
         ArrayList<funcionario> func = new ArrayList<>();//lista com todos os funcionarios
         ArrayList<funcionario> funcB = new ArrayList<>();//lista com apenas funcionarios que recebem beneficios 
+        
         funcionario g = new gerente(null);
         funcionario s = new secretario(null);
         funcionario v = new vendedor(null);
@@ -73,27 +74,27 @@ public class App {
             double valorTotal;
             double salarioTotal;
             double maiorValor;
-            double maiorBeneficio;
+            double beneficioTotal;
+            String maiorBeneficio;
             while (line != null) {
                 String[] space = line.split(", ");
 
                 dataV = sdf.parse(space[0]);
                 
-                for (funcionario f : func) { //tentativa falha de ler as vendas corretamente
-                    if (f.getName().equals(space[1])) {
-                        f.setVenda(Double.parseDouble(space[2]));
-                    }   
-                    if (f.getName().equals(space[3])) {
-                        f.setVenda(Double.parseDouble(space[4]));
-                    } 
-                }
 
                 valorTotal=functions.valorTotal(func, dataV.getMonth(),dataV.getYear());//metodo que retorna o valor total
                 salarioTotal=functions.salarioTotal(func, dataV.getMonth(),dataV.getYear());//metodo que retorna o total apenas dos salarios
-                maiorBeneficio = functions.salarioBen(funcB, dataV.getMonth(), dataV.getYear());
+                beneficioTotal = functions.salarioBen(funcB, dataV.getMonth(), dataV.getYear());//metodo que retorna o valor total em beneficios
                 maiorValor = functions.maiorValor(func, dataV.getMonth(), dataV.getYear());//metodo que retorna o valor maior
+                maiorBeneficio = functions.maiorBen(funcB, dataV.getMonth(), dataV.getYear());// metodo que retorna o nome do funcionario que recebeu o maior valor em beneficio
 
-                System.out.printf("--Valores referentes ao mes %d--\nValor total: %.2f\nSomente Salario: %.2f\nValor em Beneficio: %.2f\nMaior valor por funcionario: %.2f\n",(dataV.getMonth() + 1), valorTotal,salarioTotal,maiorBeneficio,maiorValor);
+                System.out.printf("--Valores referentes ao mes %d--\n" +
+                    "Valor total: %.2f\n" +
+                    "Somente Salario: %.2f\n" +
+                    "Valor em Beneficio: %.2f\n" +
+                    "Maior valor por funcionario: %.2f\n"+
+                    "Funcionario que recebeu o valor maior em beneficio: %s\n",
+                    (dataV.getMonth() + 1), valorTotal, salarioTotal, beneficioTotal, maiorValor, maiorBeneficio);
                 
                 System.out.println();
                 line = br.readLine(); 

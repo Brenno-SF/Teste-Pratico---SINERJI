@@ -59,4 +59,17 @@ public class functions {
         
         return max;
     }
+    static String maiorBen(ArrayList<funcionario> funcB, int mesAtual, int anoAtual){
+        double  max = Double.MIN_VALUE;
+        String nome = "";
+
+        for (funcionario f : funcB) {
+            if (f.getBeneficio() > max) {
+                max = f.getBeneficio();                
+                nome = f.getName();
+            } 
+        }
+
+        return nome;
+    }
 }
