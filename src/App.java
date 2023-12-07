@@ -11,6 +11,7 @@ public class App {
         
         ArrayList<funcionario> func = new ArrayList<>();//lista com todos os funcionarios
         ArrayList<funcionario> funcB = new ArrayList<>();//lista com apenas funcionarios que recebem beneficios 
+        ArrayList<funcionario> vend = new ArrayList<>();//lista com venedores 
         
         funcionario g = new gerente(null);
         funcionario s = new secretario(null);
@@ -50,6 +51,7 @@ public class App {
                         dataAd = sdf.parse(v.getDataAdmissao());
                         func.add(v);
                         funcB.add(v);
+                        vend.add(v);
                         break;
                         
                     default:
@@ -76,25 +78,37 @@ public class App {
             double maiorValor;
             double beneficioTotal;
             String maiorBeneficio;
+            String maiorVenda;
+
             while (line != null) {
                 String[] space = line.split(", ");
 
                 dataV = sdf.parse(space[0]);
                 
+                for (funcionario ven : vend) { //Tentativa de pegar as vendas corretamente do arquvio, checando com o nome do vendedor
+                    if (space[1].equals(ven.getName())) {
+                        ven.setVenda(Double.parseDouble(space[2]));    
+                    }
 
+                    if (space[3].equals(ven.getName())) {
+                        ven.setVenda(Double.parseDouble(space[4]));    
+                    }
+                }
                 valorTotal=functions.valorTotal(func, dataV.getMonth(),dataV.getYear());//metodo que retorna o valor total
                 salarioTotal=functions.salarioTotal(func, dataV.getMonth(),dataV.getYear());//metodo que retorna o total apenas dos salarios
                 beneficioTotal = functions.salarioBen(funcB, dataV.getMonth(), dataV.getYear());//metodo que retorna o valor total em beneficios
                 maiorValor = functions.maiorValor(func, dataV.getMonth(), dataV.getYear());//metodo que retorna o valor maior
                 maiorBeneficio = functions.maiorBen(funcB, dataV.getMonth(), dataV.getYear());// metodo que retorna o nome do funcionario que recebeu o maior valor em beneficio
+                maiorVenda = functions.maiorBen(vend, dataV.getMonth(), dataV.getYear());// metodo que retorna o nome do funcionario que recebeu o maior valor em beneficio
 
                 System.out.printf("--Valores referentes ao mes %d--\n" +
                     "Valor total: %.2f\n" +
                     "Somente Salario: %.2f\n" +
                     "Valor em Beneficio: %.2f\n" +
                     "Maior valor por funcionario: %.2f\n"+
-                    "Funcionario que recebeu o valor maior em beneficio: %s\n",
-                    (dataV.getMonth() + 1), valorTotal, salarioTotal, beneficioTotal, maiorValor, maiorBeneficio);
+                    "Funcionario que recebeu o valor maior em beneficio: %s\n"+
+                    "Vendedor que mais vendeu: %s\n",
+                    (dataV.getMonth() + 1), valorTotal, salarioTotal, beneficioTotal, maiorValor, maiorBeneficio, maiorVenda);
                 
                 System.out.println();
                 line = br.readLine(); 

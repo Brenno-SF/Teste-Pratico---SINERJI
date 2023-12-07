@@ -72,4 +72,17 @@ public class functions {
 
         return nome;
     }
+
+    String maiorVeda(ArrayList<vendedor> ven, int mesAtual, int anoAtual){
+        double max = Double.MAX_VALUE;
+        String nome = "";
+
+         for (vendedor v : ven) {
+            if (v.getVenda() > max) {
+                max = v.getVenda();                
+                nome = v.getName();
+            } 
+        }
+        return nome;    
+    }
 }
